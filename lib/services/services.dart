@@ -19,5 +19,19 @@ Future<MovieModel> getUpcomingMovies() async {
     log('success');
     return MovieModel.fromJson(jsonDecode(response.body));
   }
-  throw Exception('failed to load trending');
+  throw Exception('failed to load upcoming movies');
+}
+
+Future<MovieModel> getTrendingMovies() async {
+  endPoint = 'trending/all/day';
+  final url = '$baseUrl$endPoint$key';
+
+  final response = await http.get(Uri.parse(url));
+
+  if (response.statusCode == 200) {
+    log('trending movies fetched');
+    return MovieModel.fromJson(jsonDecode(response.body));
+  } else {
+    throw Exception('failed to load trending');
+  }
 }
