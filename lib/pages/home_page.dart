@@ -15,8 +15,8 @@ class _HomePageState extends State<HomePage> {
   late Future<MovieModel> upcomingFuture,
       trendingFuture,
       popularMoviesFuture,
-      popularTvFuture;
-  //     topRatedFuture;
+      popularTvFuture,
+      topRatedFuture;
   // late Future<Credit> creditsFuture;
 
   @override
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
     trendingFuture = getTrendingMovies();
     popularMoviesFuture = getPopularMovies();
     popularTvFuture = getPopularTvShows();
-    // topRatedFuture = getTopRatedMovies();
+    topRatedFuture = getTopRatedMovies();
     super.initState();
   }
 
@@ -52,9 +52,8 @@ class _HomePageState extends State<HomePage> {
           future: popularMoviesFuture,
           headlineText: 'Popular Movies',
         ),
-
-        // MoviesListView(
-        //     future: topRatedFuture, headlineText: 'Top Rated Movies'),
+        MoviesListView(
+            future: topRatedFuture, headlineText: 'Top Rated Movies'),
       ],
     );
   }
