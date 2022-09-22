@@ -12,9 +12,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<MovieModel> upcomingFuture, trendingFuture;
-  //     popularMoviesFuture,
-  //     popularTvFuture,
+  late Future<MovieModel> upcomingFuture,
+      trendingFuture,
+      popularMoviesFuture,
+      popularTvFuture;
   //     topRatedFuture;
   // late Future<Credit> creditsFuture;
 
@@ -22,8 +23,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     upcomingFuture = getUpcomingMovies();
     trendingFuture = getTrendingMovies();
-    // popularMoviesFuture = getPopularMovies();
-    // popularTvFuture = getPopularTvShows();
+    popularMoviesFuture = getPopularMovies();
+    popularTvFuture = getPopularTvShows();
     // topRatedFuture = getTopRatedMovies();
     super.initState();
   }
@@ -41,12 +42,17 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(
           height: 10,
         ),
+        MoviesListView(
+            future: popularTvFuture, headlineText: 'Popular TV Shows'),
+        MoviesListView(
+          future: trendingFuture,
+          headlineText: 'Trending',
+        ),
+        MoviesListView(
+          future: popularMoviesFuture,
+          headlineText: 'Popular Movies',
+        ),
 
-        MoviesListView(future: trendingFuture, headlineText: 'Trending'),
-        // MoviesListView(
-        //     future: popularMoviesFuture, headlineText: 'Popular Movies'),
-        // MoviesListView(
-        //     future: popularTvFuture, headlineText: 'Popular TV Shows'),
         // MoviesListView(
         //     future: topRatedFuture, headlineText: 'Top Rated Movies'),
       ],

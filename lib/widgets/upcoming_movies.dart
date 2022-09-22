@@ -70,16 +70,16 @@ class UpcomingMovies extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Text(
-                                //   data[index].title ?? data[index].name!,
-                                //   overflow: TextOverflow.ellipsis,
-                                //   style: Theme.of(context).textTheme.bodyLarge,
-                                // ),
-                                // Text(
-                                //   getGenres(data[index].genreIds!),
-                                //   overflow: TextOverflow.ellipsis,
-                                //   style: const TextStyle(fontSize: 12),
-                                // ),
+                                Text(
+                                  data[index].title ?? data[index].name!,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                Text(
+                                  getGenres(data[index].genreIds!),
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(fontSize: 12),
+                                ),
                               ],
                             ),
                           ),

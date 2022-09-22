@@ -35,3 +35,31 @@ Future<MovieModel> getTrendingMovies() async {
     throw Exception('failed to load trending');
   }
 }
+
+Future<MovieModel> getPopularMovies() async {
+  endPoint = 'movie/popular';
+  final url = '$baseUrl$endPoint$key';
+
+  final response = await http.get(Uri.parse(url));
+  if (response.statusCode == 200) {
+    return MovieModel.fromJson(
+      jsonDecode(response.body),
+    );
+  } else {
+    throw Exception('failed to load popular');
+  }
+}
+
+Future<MovieModel> getPopularTvShows() async {
+  endPoint = 'tv/popular';
+  final url = '$baseUrl$endPoint$key';
+
+  final response = await http.get(Uri.parse(url));
+  if (response.statusCode == 200) {
+    return MovieModel.fromJson(
+      jsonDecode(response.body),
+    );
+  } else {
+    throw Exception('failed to load popular');
+  }
+}
