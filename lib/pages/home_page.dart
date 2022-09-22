@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tmbd_api_movie_app/models/movie_model.dart';
+import 'package:tmbd_api_movie_app/services/services.dart';
+import 'package:tmbd_api_movie_app/widgets/upcoming_movies.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,8 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // late Future<Model> upcomingFuture,
-  //     trendingFuture,
+  late Future<MovieModel> upcomingFuture;
+  //     trendingFuture,x
   //     popularMoviesFuture,
   //     popularTvFuture,
   //     topRatedFuture;
@@ -17,7 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // upcomingFuture = getUpcomingMovies();
+    upcomingFuture = getUpcomingMovies();
     // trendingFuture = getTrendingMovies();
     // popularMoviesFuture = getPopularMovies();
     // popularTvFuture = getPopularTvShows();
@@ -32,9 +35,9 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(
           height: 25,
         ),
-        // UpcomingMovies(
-        //   future: upcomingFuture,
-        // ),
+        UpcomingMovies(
+          future: upcomingFuture,
+        ),
         const SizedBox(
           height: 10,
         ),
