@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:tmbd_api_movie_app/models/movie_model.dart';
+import 'package:tmbd_api_movie_app/pages/detail_page.dart';
 import 'package:tmbd_api_movie_app/utils/utils.dart';
 
 class MoviesListView extends StatelessWidget {
@@ -43,19 +44,20 @@ class MoviesListView extends StatelessWidget {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //       builder: (context) => DetailPage(
-                                //           isTvShow:
-                                //               headlineText.contains('Movies') ||
-                                //                       data[index].mediaType ==
-                                //                           MediaType.movie
-                                //                   ? false
-                                //                   : true,
-                                //           data: snapshot.data!,
-                                //           index: index),
-                                //     ));
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailPage(
+                                        isTvShow:
+                                            headlineText.contains('Movies') ||
+                                                    data[index].mediaType ==
+                                                        MediaType.movie
+                                                ? false
+                                                : true,
+                                        data: snapshot.data!,
+                                        index: index),
+                                  ),
+                                );
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
@@ -99,7 +101,7 @@ class MoviesListView extends StatelessWidget {
                                     style: TextStyle(
                                         color: Colors.grey.shade400,
                                         fontSize: 13),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
