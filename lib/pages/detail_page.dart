@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tmbd_api_movie_app/models/credit_model.dart';
 import 'package:tmbd_api_movie_app/models/movie_model.dart';
 import 'package:tmbd_api_movie_app/utils/utils.dart';
+import 'package:tmbd_api_movie_app/widgets/cast_widget.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({
@@ -67,10 +68,10 @@ class _DetailPgeState extends State<DetailPage> {
                           side: const BorderSide(width: 0),
                           backgroundColor: kBackgoundColor.withOpacity(.9),
                           label: Text(
-                            'Pankaj',
-                            // getGenre(
-                            //     data.results[index].genreIds![genreIndex],
-                            //     genreIndex),
+                            getGenres(
+                                    widget.data.results[widget.index].genreIds!)
+                                .split(',')
+                                .elementAt(genreIndex),
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -129,10 +130,11 @@ class _DetailPgeState extends State<DetailPage> {
                   //   onTap: () {
                   //     print(widget.data.results[widget.index].id);
                   //   },
-                  //   child: CastWidget(
-                  //     id: data.results[index].id!,
-                  //     isTvShow: isTvShow,
-                  //   ),
+                  //   child:
+                  CastWidget(
+                    id: widget.data.results[widget.index].id!,
+                    isTvShow: widget.isTvShow,
+                  ),
                   // ),
                   // SimilarWidget(data: data, index: index, isTvShow: isTvShow),
                   // ReviewsWidget(isTvShow: isTvShow, id: data.results[index].id!)

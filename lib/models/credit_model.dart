@@ -2,7 +2,9 @@ import 'dart:convert';
 
 Credit creditFromJson(String str) => Credit.fromJson(json.decode(str));
 
-String creditToJson(Credit data) => json.encode(data.toJson());
+String creditToJson(Credit data) => json.encode(
+      data.toJson(),
+    );
 
 class Credit {
   Credit({

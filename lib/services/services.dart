@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:http/http.dart' as http;
+import 'package:tmbd_api_movie_app/models/credit_model.dart';
 import 'package:tmbd_api_movie_app/models/movie_model.dart';
 
 import '../utils/utils.dart';
@@ -119,5 +120,19 @@ Future<MovieModel> searchData(String query) async {
     );
   } else {
     throw Exception('not found');
+  }
+}
+
+Future<Credit> getCredits(int id, bool isTvShow) async {
+  endPoint = isTvShow ? 'tv/$id/credits' : 'movie/$id/credits';
+  final String url = '$baseUrl$endPoint$key';
+  final response = await http.get(Uri.parse(url));
+
+  if (response.statusCode == 200) {
+    return Credit.fromJson(
+      jsonDecode(response.body),
+    );
+  } else {
+    throw Exception('failed to load credits');
   }
 }
