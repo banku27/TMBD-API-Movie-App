@@ -11,11 +11,21 @@ class ExplorePage extends StatefulWidget {
 }
 
 class _ExplorePageState extends State<ExplorePage> {
-  late Future<MovieModel> comedyFuture;
+  late Future<MovieModel> comedyFuture,
+      romanceFuture,
+      horrorFuture,
+      dramaFuture,
+      familyFuture,
+      actionFuture;
 
   @override
   void initState() {
     comedyFuture = discoverMovies(genreId: 35);
+    romanceFuture = discoverMovies(genreId: 10749);
+    horrorFuture = discoverMovies(genreId: 27);
+    dramaFuture = discoverMovies(genreId: 18);
+    familyFuture = discoverMovies(genreId: 10751);
+    actionFuture = discoverMovies(genreId: 28);
     super.initState();
   }
 
@@ -54,6 +64,11 @@ class _ExplorePageState extends State<ExplorePage> {
           ),
         ),
         MoviesListView(future: comedyFuture, headlineText: 'Comedy Movies'),
+        MoviesListView(future: romanceFuture, headlineText: 'Romance Movies'),
+        MoviesListView(future: dramaFuture, headlineText: 'Drama Movies'),
+        MoviesListView(future: horrorFuture, headlineText: 'Horror Movies'),
+        MoviesListView(future: familyFuture, headlineText: 'Family Movies'),
+        MoviesListView(future: actionFuture, headlineText: 'Action Movies'),
       ],
     );
   }
