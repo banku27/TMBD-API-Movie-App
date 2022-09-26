@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tmbd_api_movie_app/models/movie_model.dart';
 import 'package:tmbd_api_movie_app/services/services.dart';
 import 'package:tmbd_api_movie_app/widgets/movie_list_view.dart';
+import 'package:tmbd_api_movie_app/widgets/search.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
@@ -34,7 +35,12 @@ class _ExplorePageState extends State<ExplorePage> {
     return ListView(
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            showSearch(
+              context: context,
+              delegate: Search(),
+            );
+          },
           child: Container(
             margin: const EdgeInsets.symmetric(
               horizontal: 10,
