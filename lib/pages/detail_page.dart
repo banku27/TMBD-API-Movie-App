@@ -3,6 +3,7 @@ import 'package:tmbd_api_movie_app/models/credit_model.dart';
 import 'package:tmbd_api_movie_app/models/movie_model.dart';
 import 'package:tmbd_api_movie_app/utils/utils.dart';
 import 'package:tmbd_api_movie_app/widgets/cast_widget.dart';
+import 'package:tmbd_api_movie_app/widgets/similar_widget.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({
@@ -136,7 +137,10 @@ class _DetailPgeState extends State<DetailPage> {
                     isTvShow: widget.isTvShow,
                   ),
                   // ),
-                  // SimilarWidget(data: data, index: index, isTvShow: isTvShow),
+                  SimilarWidget(
+                      data: widget.data,
+                      index: widget.index,
+                      isTvShow: widget.isTvShow),
                   // ReviewsWidget(isTvShow: isTvShow, id: data.results[index].id!)
                 ],
               ),

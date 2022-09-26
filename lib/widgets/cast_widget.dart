@@ -1,7 +1,4 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-
 import 'package:tmbd_api_movie_app/models/credit_model.dart';
 import 'package:tmbd_api_movie_app/services/services.dart';
 import 'package:tmbd_api_movie_app/utils/utils.dart';
@@ -42,6 +39,9 @@ class _CastWidgetState extends State<CastWidget> {
                 'The Cast',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
+              const SizedBox(
+                height: 10,
+              ),
               AspectRatio(
                 aspectRatio: 2.1,
                 child: ListView.builder(
@@ -52,6 +52,7 @@ class _CastWidgetState extends State<CastWidget> {
                     return Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CircleAvatar(
                             backgroundColor: Colors.grey,
@@ -84,7 +85,7 @@ class _CastWidgetState extends State<CastWidget> {
                     );
                   },
                 ),
-              )
+              ),
             ],
           );
         } else if (snapshot.hasError) {

@@ -136,3 +136,17 @@ Future<Credit> getCredits(int id, bool isTvShow) async {
     throw Exception('failed to load credits');
   }
 }
+
+Future<MovieModel> getSimilar(int id, bool isTvShow) async {
+  endPoint = isTvShow ? 'tv/$id/similar' : 'movie/$id/similar';
+  final String url = '$baseUrl$endPoint$key';
+  final response = await http.get(Uri.parse(url));
+
+  if (response.statusCode == 200) {
+    return MovieModel.fromJson(
+      jsonDecode(response.body),
+    );
+  } else {
+    throw Exception('failed to load similar');
+  }
+}
