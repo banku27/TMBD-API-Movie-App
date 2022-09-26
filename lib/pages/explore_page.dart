@@ -36,8 +36,11 @@ class _ExplorePageState extends State<ExplorePage> {
         GestureDetector(
           onTap: () {},
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            height: 10,
+            margin: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 20,
+            ),
+            height: 70,
             child: Card(
               color: Colors.grey.withOpacity(.5),
               shape: RoundedRectangleBorder(

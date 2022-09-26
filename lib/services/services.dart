@@ -93,3 +93,17 @@ Future<MovieModel> discoverMovies({int? genreId}) async {
     throw Exception('failed to load genres');
   }
 }
+
+Future<MovieModel> movieSearch(String query) async {
+  endPoint = 'search/movie';
+  final url = '$baseUrl$endPoint$key&query=$query';
+
+  final response = await http.get(
+    Uri.parse(url),
+  );
+  if (response.statusCode == 200) {
+    return MovieModel.fromJson(jsonDecode(response.body));
+  } else {
+    throw Exception('not found');
+  }
+}
