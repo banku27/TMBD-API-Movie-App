@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:tmbd_api_movie_app/pages/explore_page.dart';
 import 'package:tmbd_api_movie_app/pages/home_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -11,7 +12,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  // List pages = [const HomePage(), const ExplorePage(), const Liked()];
+  List pages = [
+    const HomePage(),
+    const ExplorePage(),
+    // const LikedPage(),
+  ];
   int currentIndex = 0;
   void onTap(int index) {
     setState(() {
@@ -22,7 +27,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const HomePage(),
+      body: pages[currentIndex],
       extendBody: true,
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.circular(20),

@@ -77,3 +77,19 @@ Future<MovieModel> getTopRatedMovies() async {
     throw Exception('failed to load top rated movies');
   }
 }
+
+Future<MovieModel> discoverMovies({int? genreId}) async {
+  endPoint = 'discover/movie';
+  final String url = genreId == null
+      ? '$baseUrl$endPoint$key'
+      : '$baseUrl$endPoint$key&with_genres=$genreId';
+  final response = await http.get(Uri.parse(url));
+
+  if (response.statusCode == 200) {
+    return MovieModel.fromJson(
+      jsonDecode(response.body),
+    );
+  } else {
+    throw Exception('failed to load genres');
+  }
+}

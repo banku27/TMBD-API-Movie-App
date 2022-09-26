@@ -58,27 +58,27 @@ class _DetailPgeState extends State<DetailPage> {
                   ),
                   Wrap(
                     children: List.generate(
-                        widget.data.results[widget.index].genreIds!.length,
-                        (genreIndex) => Padding(
-                              padding: const EdgeInsets.only(right: 10, top: 4),
-                              child: Chip(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                side: const BorderSide(width: 0),
-                                backgroundColor:
-                                    kBackgoundColor.withOpacity(.9),
-                                label: Text(
-                                  'Pankaj',
-                                  // getGenre(
-                                  //     data.results[index].genreIds![genreIndex],
-                                  //     genreIndex),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(color: Colors.white70),
-                                ),
-                              ),
-                            )),
+                      widget.data.results[widget.index].genreIds!.length,
+                      (genreIndex) => Padding(
+                        padding: const EdgeInsets.only(right: 10, top: 4),
+                        child: Chip(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          side: const BorderSide(width: 0),
+                          backgroundColor: kBackgoundColor.withOpacity(.9),
+                          label: Text(
+                            'Pankaj',
+                            // getGenre(
+                            //     data.results[index].genreIds![genreIndex],
+                            //     genreIndex),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Colors.white70),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 6,
