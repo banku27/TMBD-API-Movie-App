@@ -88,9 +88,11 @@ class _ReviewsWidgetState extends State<ReviewsWidget> {
                                     alignment: Alignment.centerRight,
                                     child: TextButton(
                                         onPressed: () {
-                                          setState(() {
-                                            isExpanded = true;
-                                          });
+                                          setState(
+                                            () {
+                                              isExpanded = true;
+                                            },
+                                          );
                                         },
                                         child: const Text('Read More...')),
                                   ),
