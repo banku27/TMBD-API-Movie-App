@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:tmbd_api_movie_app/pages/explore_page.dart';
 import 'package:tmbd_api_movie_app/pages/home_page.dart';
+import 'package:tmbd_api_movie_app/pages/liked_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _MainPageState extends State<MainPage> {
   List pages = [
     const HomePage(),
     const ExplorePage(),
-    // const LikedPage(),
+    const LikedPage(),
   ];
   int currentIndex = 0;
   void onTap(int index) {

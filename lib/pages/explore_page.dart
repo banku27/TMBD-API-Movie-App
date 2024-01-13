@@ -52,10 +52,10 @@ class _ExplorePageState extends State<ExplorePage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
+              child: const Padding(
+                padding: EdgeInsets.all(15.0),
                 child: Row(
-                  children: const [
+                  children: [
                     Icon(Icons.search),
                     SizedBox(
                       width: 10,

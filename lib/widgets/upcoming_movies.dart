@@ -26,9 +26,10 @@ class UpcomingMovies extends StatelessWidget {
               ),
               CarouselSlider.builder(
                 options: CarouselOptions(
-                    viewportFraction: 0.5,
-                    enlargeCenterPage: data!.length != 1,
-                    aspectRatio: 1.5),
+                  viewportFraction: 0.5,
+                  enlargeCenterPage: data!.length != 1,
+                  aspectRatio: 1.5,
+                ),
                 itemCount: data.length,
                 itemBuilder: (context, index, realindex) {
                   return Stack(
@@ -62,7 +63,7 @@ class UpcomingMovies extends StatelessWidget {
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                           child: Container(
-                            height: 60,
+                            height: 61,
                             width: 175,
                             padding: const EdgeInsets.all(10),
                             color: Colors.black26,
